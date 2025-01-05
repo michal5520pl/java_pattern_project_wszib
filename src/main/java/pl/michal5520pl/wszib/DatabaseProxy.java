@@ -5,7 +5,7 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-class DatabaseProxy {
+public class DatabaseProxy {
     private static final Logger logger = LogManager.getLogger();
     private final String username, password, jdbcURL;
 
@@ -35,6 +35,13 @@ class DatabaseProxy {
                 ? String.format("Validation check performed by %s for %s was not successful!", classExecuting.getName(), user.getUsername())
                 : message
         );
+    }
+
+    public boolean containsUser(final User user){
+        var db = new Database(jdbcURL, username, password);
+        db.createTable();
+
+        return db.containsUser(user);
     }
 
     boolean registerUser(final User user){
