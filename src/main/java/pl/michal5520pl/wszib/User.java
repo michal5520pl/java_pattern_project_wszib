@@ -1,6 +1,6 @@
 package pl.michal5520pl.wszib;
 
-class User {
+public class User {
     private final String username;
     private final String email;
     private final String password;
@@ -11,15 +11,15 @@ class User {
         this.password = password;
     }
 
-    String getUsername(){
+    public String getUsername(){
         return username;
     }
 
-    String getEmail() {
+    public String getEmail() {
         return email;
     }
 
-    String getPassword() {
+    public String getPassword() {
         return password;
     }
 }

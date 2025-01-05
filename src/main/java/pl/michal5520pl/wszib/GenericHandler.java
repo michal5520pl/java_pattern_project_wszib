@@ -14,27 +14,21 @@ public abstract class GenericHandler {
     private String errorMessage = null;
     protected final static Logger logger = LogManager.getLogger();
 
-    GenericHandler(final DatabaseProxy dbProxy, final User user, final List<String> nextHandlers){
+    public GenericHandler(final DatabaseProxy dbProxy, final User user, final List<String> nextHandlers){
         this.dbProxy = dbProxy;
         this.user = user;
         this.nextHandlers = nextHandlers;
     }
 
-    protected final User getUser(){
-        return this.user;
-    }
+    protected final DatabaseProxy getDbProxy(){ return this.dbProxy; }
 
-    protected final List<String> getHandlers(){
-        return this.nextHandlers;
-    }
+    protected final User getUser(){ return this.user; }
 
-    protected final String getMessage(){
-        return this.errorMessage;
-    }
+    protected final List<String> getHandlers(){ return this.nextHandlers; }
 
-    protected final void setMessage(final String message){
-        this.errorMessage = message;
-    }
+    protected final String getMessage(){ return this.errorMessage; }
+
+    protected final void setMessage(final String message){ this.errorMessage = message; }
 
     final void validate(Function<User, Boolean> function){
         logger.debug(String.format("Starting %s handler", getClass().getName()));
