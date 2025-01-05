@@ -1,0 +1,23 @@
+Configuration:
+  Appenders:
+    Console:
+      name: "CONSOLE"
+      PatternLayout:
+        pattern: "%p - %msg%n"
+    File:
+      - name: "MAIN"
+        fileName: "logs/main.log"
+        JsonTemplateLayout: {}
+      - name: "DEBUG_LOG"
+        fileName: "logs/debug.log"
+        PatternLayout:
+          pattern: "%d [%t] %p %c - %msg%n"
+  Loggers:
+    Root:
+      level: "INFO"
+      AppenderRef:
+        - ref: "CONSOLE"
+          level: "WARN"
+        - ref: "MAIN"
+        - ref: "DEBUG_LOG"
+          level: "DEBUG"
