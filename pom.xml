@@ -147,10 +147,11 @@
           <artifactId>maven-jar-plugin</artifactId>
           <version>3.4.2</version>
           <configuration>
+            <outputDirectory>app</outputDirectory>
             <archive>
               <manifest>
                 <addClasspath>true</addClasspath>
-                <classpathPrefix>${project.build.finalName}.lib/</classpathPrefix>
+                <classpathPrefix>lib</classpathPrefix>
                 <mainClass>${project.groupId}.Application</mainClass>
               </manifest>
             </archive>
@@ -192,13 +193,6 @@
             </configuration>
           </execution>
         </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jar-plugin</artifactId>
-        <configuration>
-          <outputDirectory>app</outputDirectory>
-        </configuration>
       </plugin>
     </plugins>
   </build>
